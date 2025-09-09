@@ -1,0 +1,18 @@
+[package]
+name = "gaelspell-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libperl-rs = "=0.3.0"
+libperl-sys = "=0.3.0"
+actix-web = "4.11"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+once_cell = "1"
+
+[build-dependencies]
+libperl-config = "=0.3.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(perlapi_ver30)', 'cfg(perl_useithreads)'] }
